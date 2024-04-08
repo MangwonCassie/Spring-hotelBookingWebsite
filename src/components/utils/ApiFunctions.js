@@ -6,6 +6,7 @@ export const api = axios.create({
 
 export const getHeader = () => {
 	const token = localStorage.getItem("token")
+	console.log("Token:", token) // Add this line to log the token
 	return {
 		Authorization: `Bearer ${token}`,
 		"Content-Type": "application/json"
@@ -19,7 +20,7 @@ export async function addRoom(photo, roomType, roomPrice) {
 	formData.append("roomType", roomType)
 	formData.append("roomPrice", roomPrice)
 
-	const response = await api.post("/rooms/add/new-room", formData,{
+	const response = await api.post("api/rooms/add/new-room", formData,{
 		headers: getHeader()
 	})
 	if (response.status === 201) {
@@ -32,7 +33,7 @@ export async function addRoom(photo, roomType, roomPrice) {
 /* This function gets all room types from thee database */
 export async function getRoomTypes() {
 	try {
-		const response = await api.get("/rooms/room/types")
+		const response = await api.get("api/rooms/room/types")
 		return response.data
 	} catch (error) {
 		throw new Error("Error fetching room types")
@@ -41,7 +42,7 @@ export async function getRoomTypes() {
 /* This function gets all rooms from the database */
 export async function getAllRooms() {
 	try {
-		const result = await api.get("/rooms/all-rooms")
+		const result = await api.get("api/rooms/all-rooms")
 		return result.data
 	} catch (error) {
 		throw new Error("Error fetching rooms")
@@ -51,7 +52,7 @@ export async function getAllRooms() {
 /* This function deletes a room by the Id */
 export async function deleteRoom(roomId) {
 	try {
-		const result = await api.delete(`/rooms/delete/room/${roomId}`, {
+		const result = await api.delete(`api/rooms/delete/room/${roomId}`, {
 			headers: getHeader()
 		})
 		return result.data
