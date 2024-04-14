@@ -1,12 +1,14 @@
 import React from "react"
+import Location from "./Location";
 
 
-const mapListing = () => {
+
+const MapListing = () => {
 	return (
 		<section className="bg-light p-2 mb-5 mt-5 shadow">
-		 //원래는 룸 컴포넌트
+		 <Location/>
 		</section>
 	)
 }
 
-export default mapListing
+export default MapListing;

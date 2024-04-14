@@ -19,6 +19,7 @@ import Registration from "./components/auth/Registration"
 import Profile from "./components/auth/Profile"
 import { AuthProvider } from "./components/auth/AuthProvider"
 import RequireAuth from "./components/auth/RequireAuth"
+import MapListing from "./components/map/MapListing"
 
 function App() {
 	return (
@@ -41,7 +42,7 @@ function App() {
 							}
 						/>
 						<Route path="/browse-all-rooms" element={<RoomListing />} />
-						<Route path="/find-hotels" element={<mapListing />} />
+						<Route path="/find-hotels" element={<MapListing/>} />
 
 						<Route path="/admin" element={<Admin />} />
 						<Route path="/booking-success" element={<BookingSuccess />} />
