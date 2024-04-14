@@ -199,7 +199,7 @@ body {
 
 .header-banner {
   position: relative;
-  height: 500px;
+  height: 600px;
 }
 
 @media only screen and (max-width: 768px) {

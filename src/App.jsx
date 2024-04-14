@@ -41,6 +41,7 @@ function App() {
 							}
 						/>
 						<Route path="/browse-all-rooms" element={<RoomListing />} />
+						<Route path="/find-hotels" element={<mapListing />} />
 
 						<Route path="/admin" element={<Admin />} />
 						<Route path="/booking-success" element={<BookingSuccess />} />

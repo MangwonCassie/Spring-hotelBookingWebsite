@@ -15,7 +15,7 @@ const Home = () => {
 		<section>
 			{message && <p className="text-warning px-5">{message}</p>}
 			{currentUser && (
-				<h6 className="text-success text-center"> You are logged-In as {currentUser}</h6>
+				<h6 className="text-success text-center" > You are logged-In as {currentUser}</h6>
 			)}
 			<MainHeader />
 			<div className="container">
