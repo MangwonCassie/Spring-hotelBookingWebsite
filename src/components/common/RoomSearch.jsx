@@ -20,6 +20,7 @@ const RoomSearch = () => {
 		e.preventDefault()
 		const checkInMoment = moment(searchQuery.checkInDate)
 		const checkOutMoment = moment(searchQuery.checkOutDate)
+
 		if (!checkInMoment.isValid() || !checkOutMoment.isValid()) {
 			setErrorMessage("Please enter valid dates")
 			return

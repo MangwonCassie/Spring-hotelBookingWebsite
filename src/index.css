@@ -55,11 +55,11 @@ body {
 
   /* Hotel custom color */
  .btn-hotel{
-  background-color: rgb(169, 77, 123);
+  background-color: rgb(252, 252, 252);
   color: #fff;
   }
   .btn-hotel:hover{
-  background-color: rgb(137, 127, 132);
+  background-color: rgb(245, 97, 171);
   color: #fff;
   transition: 0.7s;
   outline-color: transparent;
