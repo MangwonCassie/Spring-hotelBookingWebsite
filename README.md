@@ -12,8 +12,9 @@ JSX를 통해 UI를 렌더링 하고 스타일링은 styled-components를 이용
 
 
 - 기초 렌더링 구현
-- apis.map.kakao.com/web/guide/     & developers.kakao.com/   & apis.map.kakao.com/   3가지 주소로 웹페이지 등록 및 도메인 등록 후 javascript 키
-- index.html에 <head>에 연결
+- apis.map.kakao.com/web/guide/     & developers.kakao.com/   & apis.map.kakao.com/   3가지 주소로 웹페이지 등록 및 도메인 등록 후 javascript 키 <br>
+- index.html에 <head> 연결 <br>
+
 
 ```
 <!doctype html>
@@ -39,6 +40,13 @@ JSX를 통해 UI를 렌더링 하고 스타일링은 styled-components를 이용
 ```
 
 - 리액트로 Location 부분 뼈대 설정<br>
+
+![first map  rendering](https://github.com/MangwonCassie/Spring-hotelBookingWebsite-Front/assets/129250487/04b01895-9d36-4e00-abe9-23d6c057c6f1)
+
+<br>
+
+
+- 관련 코드 
 
 
 ```import React, { useEffect } from 'react'
