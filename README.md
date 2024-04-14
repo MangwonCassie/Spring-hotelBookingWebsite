@@ -73,6 +73,15 @@ const Location=()=>{
 export default Location;
 ```
 
+<h4>마커 구현사항 useEffect 함수에 넣어준다.</h4>
+- 참고 url (https://apis.map.kakao.com/web/documentation/#Marker_setMap)
+```    var markerPosition  = new kakao.maps.LatLng(37.365264512305174, 127.10676860117488); 
+    var marker = new kakao.maps.Marker({
+      position: markerPosition
+    });
+  marker.setMap(map);
+  ```
+
 <br>
 <h4>추가 구현해야할 사항</h4>
 - 마커 설정<br>
@@ -80,6 +89,7 @@ export default Location;
 - 해당 호텔에 리뷰 쓸 수 있는 거 구현하기<br>
 - 내가 방문해서 리뷰를 쓴 호텔이라면 지도에서 마커를 클릭했을 떄 내 리뷰가 함께 카카오맵 정보와 함께 불러오도록 처리하기 <br>
 - 카카오 길찾기<br>
+
 
 
 
