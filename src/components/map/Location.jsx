@@ -72,7 +72,7 @@ const Location = () => {
       });
     }
 
-  }, []);
+  }, [searchKeyword]);
 
   const searchPlaces = () => {
     console.log("검색어:", searchKeyword);
