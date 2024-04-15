@@ -46,7 +46,7 @@ const Location = () => {
         }}
       >
         <div id="map" style={{
-          width: "800px", height: "500px", paddingBottom: "30px", borderStyle: "solid", borderColor: "#feaa00",
+          width: "800px", height: "500px", paddingBottom: "30px", borderStyle: "solid", borderColor: "rgb(169, 77, 123)",
           borderRadius: "30px"
         }}></div>
       </div>
@@ -65,7 +65,7 @@ const StyledInput = styled.input`
     height: 40px;
     border-radius: 30px;
     border-style: none;
-    background-color: #feaa00;
+    background-color:  rgb(169, 77, 123);
     color: #fff;
     padding-left: 20px;
     font-weight: 700;
@@ -79,9 +79,9 @@ const SearchButton = styled.button`
   height: 40px;
   border-radius: 30px;
   border-style: solid;
-  border-color: #feaa00;
+  border-color:  rgb(169, 77, 123);
   background-color: #fff;
-  color: #feaa00;
+  color:  rgb(169, 77, 123);
   font-weight: 700;
   font-size: 18px;
 `
