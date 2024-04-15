@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Location = () => {
-  const [searchKeyword, setSearchKeyword] = useState("맛집을 검색해보세요");
+  const [searchKeyword, setSearchKeyword] = useState("호텔을 검색해보세요");
   const handleInputChange = (e) => {
     setSearchKeyword(e.target.value); // 검색어 업데이트
   };
@@ -34,6 +34,7 @@ const Location = () => {
           onChange={handleInputChange}
           placeholder="맛집을 검색해보세요"
         />
+        <SearchButton >검색</SearchButton>
       </InputWrapper>
 
       <div
@@ -41,11 +42,15 @@ const Location = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+
         }}
       >
-        <div id="map" style={{ width: "800px", height: "500px", paddingBottom: "30px" }}></div>
+        <div id="map" style={{
+          width: "800px", height: "500px", paddingBottom: "30px", borderStyle: "solid", borderColor: "#feaa00",
+          borderRadius: "30px"
+        }}></div>
       </div>
-    </div >
+    </div>
   );
 };
 
@@ -56,17 +61,30 @@ const InputWrapper = styled.div`
 `
 
 const StyledInput = styled.input`
-  width: 500px;
+    width: 500px;
+    height: 40px;
+    border-radius: 30px;
+    border-style: none;
+    background-color: #feaa00;
+    color: #fff;
+    padding-left: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 40px 10px;
+    /*margin: 40px auto; 이러면 검색창에 공간이 띄어짐.  */
+  `;
+
+const SearchButton = styled.button`
+  width: 100px;
   height: 40px;
   border-radius: 30px;
-  border-style: none;
-  background-color: #feaa00;
-  color: #fff;
-  padding-left: 20px;
+  border-style: solid;
+  border-color: #feaa00;
+  background-color: #fff;
+  color: #feaa00;
   font-weight: 700;
   font-size: 18px;
-  margin: 30px auto; /*위 아래 0 */
-`;
+`
 
 
 export default Location;
