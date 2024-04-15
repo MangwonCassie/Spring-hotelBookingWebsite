@@ -6,6 +6,7 @@ const Location = () => {
   const handleInputChange = (e) => {
     setSearchKeyword(e.target.value); // 검색어 업데이트
   };
+  const [markers, setMarkers] = useState([]); // 마커 배열 추가
 
   useEffect(() => {
     var container = document.getElementById("map");
@@ -18,11 +19,54 @@ const Location = () => {
       37.365264512305174,
       127.10676860117488
     );
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-    });
-    marker.setMap(map);
+
+
+    // 마커를 클릭하면 장소명을 표출할 인포윈도우
+    var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places(map);
+
+    // 카테고리로 호텔을 검색합니다
+    ps.categorySearch('AD5', placesSearchCB, { useMapBounds: true });
+
+    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    function placesSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        for (var i = 0; i < data.length; i++) {
+          console.log("검색된 음식점의 갯수는 " + i + "개 입니다.")
+          console.log(data[i]);
+          displayMarker(data[i]);
+        }
+      }
+    }
+
+    function displayMarker(place) {
+
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x)
+      });
+
+      marker.setMap(map);
+
+      kakao.maps.event.addListener(marker, 'click', function () {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+        infowindow.open(map, marker);
+      });
+    }
+
   }, []);
+
+  const searchPlaces = () => {
+    console.log("검색어:", searchKeyword);
+    // 기존 마커 삭제
+    markers.forEach((marker) => {
+      marker.setMap(null); // 지도에서 마커 제거
+    });
+    setMarkers([]); // 마커 배열 초기화
+  };
 
   return (
     <div>
@@ -34,7 +78,8 @@ const Location = () => {
           onChange={handleInputChange}
           placeholder="맛집을 검색해보세요"
         />
-        <SearchButton >검색</SearchButton>
+        <SearchButton onClick={searchPlaces} >검색</SearchButton>
+        <SearchButton onClick={searchPlaces} >Only Hotel</SearchButton>
       </InputWrapper>
 
       <div
@@ -75,7 +120,7 @@ const StyledInput = styled.input`
   `;
 
 const SearchButton = styled.button`
-  width: 100px;
+  width: 150px;
   height: 40px;
   border-radius: 30px;
   border-style: solid;
