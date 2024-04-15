@@ -103,6 +103,26 @@ export default Location;
 - 내가 방문해서 리뷰를 쓴 호텔이라면 지도에서 마커를 클릭했을 떄 내 리뷰가 함께 카카오맵 정보와 함께 불러오도록 처리하기 <br>
 - 카카오 길찾기<br>
 
+<h4>자주 실수하는 부분</h4>
+-중앙정렬 하려는 요소 margin: 0 auto; 설정해도 정중앙 안됨. 반드시 부모 요소도 display: flex; justify-content: center; align-items: center; 설정 필요
+<br>
+-margin에서 auto로 하면 옆에 요소 붙일 경우 무조건 공간 생김. 
+
+```
+const StyledInput = styled.input`
+  width: 500px;
+  height: 40px;
+  border-radius: 30px;
+  border-style: none;
+  background-color: #feaa00;
+  color: #fff;
+  padding-left: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 40px 0;
+  /*margin: 40px auto; 이러면 검색창에 공간이 띄어짐.  */
+`;
+```
 
 
 
