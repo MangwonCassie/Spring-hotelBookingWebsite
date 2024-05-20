@@ -96,6 +96,17 @@ export default Location;
   ```
 
 <br>
+<br>
+
+- 동네 + 호텔 만 지정하면 호텔의 카테고리 확인할 수 있도록 로직 설정
+  ![hotel api](https://github.com/MangwonCassie/Spring-hotelBookingWebsite-Front/assets/129250487/bd50920a-f87a-4804-ad60-075bad194078)
+
+<br>
+- 랜덤 개수로 검색 결과 나옴. 
+- 코드는 map폴더 > Location.jsx 에 기능 구현함.
+<br>
+
+
 <h4>추가 구현해야할 사항</h4>
 - 마커 설정<br>
 - 키워드로 주변에 호텔 45개 불러올 수 있도록 api 처리하기<br>
@@ -123,6 +134,8 @@ const StyledInput = styled.input`
   /*margin: 40px auto; 이러면 검색창에 공간이 띄어짐.  */
 `;
 ```
+
+
 
 
 
