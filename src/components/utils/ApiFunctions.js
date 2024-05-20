@@ -1,8 +1,8 @@
 import axios from "axios"
 
 export const api = axios.create({
-	baseURL: "http://localhost:9192",
-	headers: {"Access-Control-Allow-Origin": "*"}
+	baseURL: "https://river-hotel-91f9caaa3277.herokuapp.com/",
+	headers: { "Access-Control-Allow-Origin": "*" }
 })
 
 export const getHeader = () => {
@@ -21,7 +21,7 @@ export async function addRoom(photo, roomType, roomPrice) {
 	formData.append("roomType", roomType)
 	formData.append("roomPrice", roomPrice)
 
-	const response = await api.post("/rooms/add/new-room", formData,{
+	const response = await api.post("/rooms/add/new-room", formData, {
 		headers: getHeader()
 	})
 	if (response.status === 201) {
@@ -67,7 +67,7 @@ export async function updateRoom(roomId, roomData) {
 	formData.append("roomType", roomData.roomType)
 	formData.append("roomPrice", roomData.roomPrice)
 	formData.append("photo", roomData.photo)
-	const response = await api.put(`/rooms/update/${roomId}`, formData,{
+	const response = await api.put(`/rooms/update/${roomId}`, formData, {
 		headers: getHeader()
 	})
 	return response
