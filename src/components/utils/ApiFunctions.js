@@ -7,8 +7,9 @@ const backendbaseURL = import.meta.env.VITE_BACKEND_URL;
 console.log("Backend Base URL:", backendbaseURL);
 
 export const api = axios.create({
-	backendbaseURL: backendbaseURL,
-	headers: { "Access-Control-Allow-Origin": "*" }
+	baseURL: backendbaseURL, //baseUrl 키 fix
+	headers: { "Access-Control-Allow-Origin": "*" },
+	withCredentials: true, // withCredentials를 추가하여 전역으로 설정합니다.
 })
 
 
