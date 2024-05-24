@@ -7,7 +7,7 @@ const backendbaseURL = import.meta.env.VITE_BACKEND_URL;
 console.log("Backend Base URL:", backendbaseURL);
 
 export const api = axios.create({
-	backendbaseURL: import.meta.env.VITE_BACKEND_URL,
+	backendbaseURL: backendbaseURL,
 	headers: { "Access-Control-Allow-Origin": "*" }
 })
 
@@ -29,7 +29,7 @@ export async function addRoom(photo, roomType, roomPrice) {
 	formData.append("roomType", roomType)
 	formData.append("roomPrice", roomPrice)
 
-	const response = await api.post(import.meta.env.VITE_BACKEND_URL + "api/rooms/add/new-room", formData, {
+	const response = await api.post("api/rooms/add/new-room", formData, {
 		headers: getHeader()
 	})
 	if (response.status === 201) {
