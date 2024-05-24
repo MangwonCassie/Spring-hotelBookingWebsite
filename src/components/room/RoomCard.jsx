@@ -3,6 +3,7 @@ import { Card, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 const RoomCard = ({ room }) => {
+	console.log("Room:", room); // Room 정보를 콘솔에 출력
 	return (
 		<Col key={room.id} className="mb-4" xs={12}>
 			<Card>
