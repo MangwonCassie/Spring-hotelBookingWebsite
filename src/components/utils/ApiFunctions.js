@@ -167,7 +167,7 @@ export async function registerUser(registration) {
 /* This function login a registered user */
 export async function loginUser(login) {
 	try {
-		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "/login", login)
+		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "login", login)
 		if (response.status >= 200 && response.status < 300) {
 			return response.data
 		} else {
