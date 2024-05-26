@@ -53,7 +53,7 @@ export async function getRoomTypes() {
 /* This function gets all rooms from the database */
 export async function getAllRooms() {
 	try {
-		const result = await api.get(import.meta.env.VITE_BACKEND_URL + "api/rooms/all-rooms")
+		const result = await api.get(import.meta.env.VITE_BACKEND_URL + "rooms/all-rooms")
 		return result.data
 	} catch (error) {
 		throw new Error("Error fetching rooms")
