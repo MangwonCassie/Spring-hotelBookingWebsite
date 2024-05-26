@@ -19,7 +19,8 @@ export const getHeader = () => {
 	console.log("Token:", token) // Add this line to log the token
 	return {
 		"Content-Type": "application/json",
-		Authorization: `Bearer ` + token
+		Authorization: `Bearer ${token}`
+
 	}
 }
 
@@ -210,6 +211,8 @@ export async function getUser(userId, token) {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/${userId}`, {
 			headers: {
 				...getHeader(),
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`
 			}
 		})
 		return response.data;
