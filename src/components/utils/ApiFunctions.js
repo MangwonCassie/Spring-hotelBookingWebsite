@@ -18,8 +18,8 @@ export const getHeader = () => {
 	const token = localStorage.getItem("token")
 	console.log("Token:", token) // Add this line to log the token
 	return {
-		Authorization: `Bearer ${token}`,
-		"Content-Type": "application/json"
+		"Content-Type": "application/json",
+		Authorization: `Bearer ` + token
 	}
 }
 
@@ -210,7 +210,6 @@ export async function getUser(userId, token) {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/${userId}`, {
 			headers: {
 				...getHeader(),
-				Authorization: `Bearer ${token}`
 			}
 		})
 		return response.data;
