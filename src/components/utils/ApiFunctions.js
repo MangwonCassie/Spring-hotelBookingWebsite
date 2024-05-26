@@ -198,7 +198,7 @@ export async function deleteUser(userId) {
 		const response = await api.delete(import.meta.env.VITE_BACKEND_URL + `api/users/delete/${userId}`, {
 			headers: getHeader()
 		})
-		return response.data
+		return response.data;
 	} catch (error) {
 		return error.message
 	}
@@ -208,9 +208,10 @@ export async function deleteUser(userId) {
 export async function getUser(userId, token) {
 	try {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/${userId}`, {
-			headers: getHeader()
+			headers: getHeader(),
+			Authorization: `Bearer ${token}`
 		})
-		return response.data
+		return response.data;
 	} catch (error) {
 		throw error
 	}
@@ -222,7 +223,7 @@ export async function getBookingsByUserId(userId, token) {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/bookings/user/${userId}/bookings`, {
 			headers: getHeader()
 		})
-		return response.data
+		return response.data;
 	} catch (error) {
 		console.error("Error fetching bookings:", error.message)
 		throw new Error("Failed to fetch bookings")
