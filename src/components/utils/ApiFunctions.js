@@ -230,10 +230,8 @@ export async function getBookingsByUserId(userId, token) {
 
 		// 요청 보내기
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/user/${userId}/bookings`, {
-			headers: {
-				...getHeader(),
-				Authorization: `Bearer ${token}`
-			}
+			headers:
+				getHeader()
 		})
 		return response.data;
 	} catch (error) {
