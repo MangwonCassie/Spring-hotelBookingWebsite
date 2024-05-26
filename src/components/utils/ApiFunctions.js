@@ -208,11 +208,9 @@ export async function deleteUser(userId) {
 /* This is the function to get a single user */
 export async function getUser(userId, token) {
 	try {
-		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/${userId}`, {
-			headers: {
-				...getHeader(),
-				withCredentials: true
-			}
+		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `/users/${userId}`, {
+			headers:
+				getHeader()
 		})
 		return response.data;
 	} catch (error) {
