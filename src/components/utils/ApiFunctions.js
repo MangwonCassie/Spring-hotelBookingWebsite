@@ -221,6 +221,14 @@ export async function getUser(userId, token) {
 /* This is the function to get user bookings by the user id */
 export async function getBookingsByUserId(userId, token) {
 	try {
+		// 요청 전에 헤더 확인
+		const headers = {
+			...getHeader(),
+			Authorization: `Bearer ${token}`
+		};
+		console.log("Request headers:", headers);
+
+		// 요청 보내기
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/user/${userId}/bookings`, {
 			headers: {
 				...getHeader(),
