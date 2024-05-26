@@ -96,7 +96,7 @@ export async function getRoomById(roomId) {
 /* This function saves a new booking to the databse */
 export async function bookRoom(roomId, booking) {
 	try {
-		const response = await api.post(import.meta.env.VITE_BACKEND_URL + `api/bookings/room/${roomId}/booking`, booking)
+		const response = await api.post(import.meta.env.VITE_BACKEND_URL + `bookings/room/${roomId}/booking`, booking)
 		return response.data
 	} catch (error) {
 		if (error.response && error.response.data) {
@@ -221,7 +221,7 @@ export async function getUser(userId, token) {
 /* This is the function to get user bookings by the user id */
 export async function getBookingsByUserId(userId, token) {
 	try {
-		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/bookings/user/${userId}/bookings`, {
+		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/user/${userId}/bookings`, {
 			headers: {
 				...getHeader(),
 				Authorization: `Bearer ${token}`
