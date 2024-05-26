@@ -208,8 +208,10 @@ export async function deleteUser(userId) {
 export async function getUser(userId, token) {
 	try {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/${userId}`, {
-			headers: getHeader(),
-			Authorization: `Bearer ${token}`
+			headers: {
+				...getHeader(),
+				Authorization: `Bearer ${token}`
+			}
 		})
 		return response.data;
 	} catch (error) {
@@ -221,7 +223,10 @@ export async function getUser(userId, token) {
 export async function getBookingsByUserId(userId, token) {
 	try {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/bookings/user/${userId}/bookings`, {
-			headers: getHeader()
+			headers: {
+				...getHeader(),
+				Authorization: `Bearer ${token}`
+			}
 		})
 		return response.data;
 	} catch (error) {
