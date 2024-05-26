@@ -211,8 +211,7 @@ export async function getUser(userId, token) {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/${userId}`, {
 			headers: {
 				...getHeader(),
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${token}`
+				withCredentials: true
 			}
 		})
 		return response.data;
