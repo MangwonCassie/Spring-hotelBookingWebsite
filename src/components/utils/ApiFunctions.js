@@ -44,7 +44,7 @@ export async function addRoom(photo, roomType, roomPrice) {
 /* This function gets all room types from thee database */
 export async function getRoomTypes() {
 	try {
-		const response = await api.get(import.meta.env.VITE_BACKEND_URL + "api/rooms/room/types")
+		const response = await api.get(import.meta.env.VITE_BACKEND_URL + "rooms/room/types")
 		return response.data
 	} catch (error) {
 		throw new Error("Error fetching room types")
