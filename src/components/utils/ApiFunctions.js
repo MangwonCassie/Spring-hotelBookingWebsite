@@ -3,7 +3,8 @@ import axios from "axios"
 
 //axios config 
 // backendbaseURL 변수에 import.meta.env.VITE_BACKEND_URL 값 확인.
-const backendbaseURL = import.meta.env.VITE_BACKEND_URL;
+// const backendbaseURL = import.meta.env.VITE_BACKEND_URL;
+const backendbaseURL = "http://localhost:9192";
 console.log("Backend Base URL:", backendbaseURL);
 
 export const api = axios.create({
@@ -170,6 +171,8 @@ export async function registerUser(registration) {
 export async function loginUser(login) {
 	try {
 		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "auth/login", login)
+		console.log("auth/login:" + import.meta.env.VITE_BACKEND_URL + "auth/login");
+		console.log("response:" + response);
 		if (response.status >= 200 && response.status < 300) {
 			return response.data
 		} else {
