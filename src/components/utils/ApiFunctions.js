@@ -123,7 +123,7 @@ export async function getAllBookings() {
 /* This function get booking by the cnfirmation code */
 export async function getBookingByConfirmationCode(confirmationCode) {
 	try {
-		const result = await api.get(import.meta.env.VITE_BACKEND_URL + `api/bookings/confirmation/${confirmationCode}`)
+		const result = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/confirmation/${confirmationCode}`)
 		return result.data
 	} catch (error) {
 		if (error.response && error.response.data) {
