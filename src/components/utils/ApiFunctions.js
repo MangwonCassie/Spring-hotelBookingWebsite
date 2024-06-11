@@ -111,7 +111,7 @@ export async function bookRoom(roomId, booking) {
 /* This function gets alll bokings from the database */
 export async function getAllBookings() {
 	try {
-		const result = await api.get(import.meta.env.VITE_BACKEND_URL + "api/bookings/all-bookings", {
+		const result = await api.get(import.meta.env.VITE_BACKEND_URL + "bookings/all-bookings", {
 			headers: getHeader()
 		})
 		return result.data
@@ -156,7 +156,7 @@ export async function getAvailableRooms(checkInDate, checkOutDate, roomType) {
 /* This function register a new user */
 export async function registerUser(registration) {
 	try {
-		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "api/auth/register-user", registration)
+		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "auth/register-user", registration)
 		return response.data
 	} catch (error) {
 		if (error.reeponse && error.response.data) {
@@ -187,7 +187,7 @@ export async function loginUser(login) {
 /*  This is function to get the user profile */
 export async function getUserProfile(userId, token) {
 	try {
-		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `api/users/profile/${userId}`, {
+		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `users/profile/${userId}`, {
 			headers: getHeader()
 		})
 		return response.data
@@ -199,7 +199,7 @@ export async function getUserProfile(userId, token) {
 /* This isthe function to delete a user */
 export async function deleteUser(userId) {
 	try {
-		const response = await api.delete(import.meta.env.VITE_BACKEND_URL + `api/users/delete/${userId}`, {
+		const response = await api.delete(import.meta.env.VITE_BACKEND_URL + `users/delete/${userId}`, {
 			headers: getHeader()
 		})
 		return response.data;
@@ -234,7 +234,7 @@ export async function getBookingsByUserId(userId, token) {
 		// 요청 보내기
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/user/${userId}/bookings`, {
 			headers:
-				getHeader()
+				headers
 		})
 		return response.data;
 	} catch (error) {
