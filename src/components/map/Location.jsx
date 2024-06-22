@@ -43,8 +43,9 @@ const Location = () => {
         // LatLngBounds 객체에 좌표를 추가합니다
         var bounds = new kakao.maps.LatLngBounds();
 
+        console.log("검색된 호텔의 갯수는 " + data.length + "개 입니다.")
         for (var i = 0; i < data.length; i++) {
-          console.log("검색된 호텔의 갯수는 " + i + "개 입니다.")
+          console.log("다음은 " + (i + 1) + "번째 호텔 정보입니다.")
           console.log(data[i]);
           displayMarker(data[i]);
           bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
