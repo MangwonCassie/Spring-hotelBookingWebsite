@@ -201,7 +201,7 @@ export async function loginUser(login) {
 export async function getUserProfile(userId, token) {
 	try {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `users/${userId}`, {
-			headers: getHeader()
+			headers: getHeaderFormData()
 		})
 		return response.data
 	} catch (error) {
