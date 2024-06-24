@@ -25,6 +25,14 @@ export const getHeader = () => {
 	}
 }
 
+export const getHeaderFormData = () => {
+	const token = localStorage.getItem("token");
+	console.log("Token:", token); // Add this line to log the token
+	return {
+		Authorization: `Bearer ${token}`
+	};
+}
+
 /* This function adds a new room room to the database */
 export async function addRoom(photo, roomType, roomPrice) {
 	const formData = new FormData()
@@ -32,11 +40,11 @@ export async function addRoom(photo, roomType, roomPrice) {
 	formData.append("roomType", roomType)
 	formData.append("roomPrice", roomPrice)
 
-	const headers = getHeader();
+	const headers = getHeaderFormData();
 	console.log("Headers:", headers); // 헤더 로그 찍기
 
 	const response = await api.post(import.meta.env.VITE_BACKEND_URL + "rooms/add/new-room", formData, {
-		headers: getHeader()
+		headers: getHeaderFormData()
 	})
 	if (response.status === 201) {
 		return true
