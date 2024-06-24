@@ -200,7 +200,7 @@ export async function loginUser(login) {
 /*  This is function to get the user profile */
 export async function getUserProfile(userId, token) {
 	try {
-		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `users/profile/${userId}`, {
+		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `users/${userId}`, {
 			headers: getHeader()
 		})
 		return response.data
