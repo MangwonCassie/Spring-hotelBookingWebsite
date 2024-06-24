@@ -32,6 +32,9 @@ export async function addRoom(photo, roomType, roomPrice) {
 	formData.append("roomType", roomType)
 	formData.append("roomPrice", roomPrice)
 
+	const headers = getHeader();
+	console.log("Headers:", headers); // 헤더 로그 찍기
+
 	const response = await api.post(import.meta.env.VITE_BACKEND_URL + "rooms/add/new-room", formData, {
 		headers: getHeader()
 	})
@@ -41,6 +44,8 @@ export async function addRoom(photo, roomType, roomPrice) {
 		return false
 	}
 }
+
+
 
 /* This function gets all room types from thee database */
 export async function getRoomTypes() {
