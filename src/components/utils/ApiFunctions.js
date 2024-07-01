@@ -54,7 +54,6 @@ export async function addRoom(photo, roomType, roomPrice) {
 }
 
 
-
 /* This function gets all room types from thee database */
 export async function getRoomTypes() {
 	try {
@@ -203,7 +202,7 @@ export async function getUserProfile(userId, token) {
 		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `users/${userId}`, {
 			headers: getHeader()
 		})
-		return response.data
+		return response.data;
 	} catch (error) {
 		throw error
 	}
@@ -262,9 +261,36 @@ export async function getBookingsByUserId(userId, token) {
 		const response = await api.get(`/bookings/user/${userId}/bookings`, {
 			headers: getHeader()
 		})
-		return response.data
+		return response.data;
 	} catch (error) {
 		console.error("Error fetching bookings:", error.message)
 		throw new Error("Failed to fetch bookings")
+	}
+}
+
+export async function saveHotel(hotelId, name, address, kakaoId, phone) {
+	const hotelData = {
+		hotelId: hotelId,
+		name: name,
+		address: address,
+		kakaoId: kakaoId,
+		phone: phone,
+	};
+
+	const headers = getHeader();
+	console.log("Headers:", headers); // 헤더 로그 찍기
+
+	try {
+		const response = await api.post("/hotels/add", hotelData, {
+			headers: headers,
+		});
+		if (response.status === 201) {
+			return true;
+		} else {
+			return false;
+		}
+	} catch (error) {
+		console.error("Error saving hotel:", error);
+		return false;
 	}
 }
