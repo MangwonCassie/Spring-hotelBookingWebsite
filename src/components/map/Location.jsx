@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { saveHotel } from "../utils/ApiFunctions";
 
 const Location = () => {
   const [searchKeyword, setSearchKeyword] = useState("호텔을 검색해보세요");
@@ -8,6 +9,22 @@ const Location = () => {
 
   const handleInputChange = (e) => {
     setSearchKeyword(e.target.value); // 검색어 업데이트
+  };
+
+  const handleSaveHotel = async (place) => {
+    const success = await saveHotel(
+      place.id,
+      place.place_name,
+      place.road_address_name,
+      place.id,
+      place.phone
+    );
+
+    if (success) {
+      alert("호텔 정보가 저장되었습니다.");
+    } else {
+      alert("호텔 정보 저장에 실패했습니다.");
+    }
   };
 
 
@@ -130,6 +147,7 @@ const Location = () => {
             <h4>{place.place_name}</h4>
             <p>{place.road_address_name}</p>
             <p>{place.phone}</p>
+            <SearchButton onClick={() => handleSaveHotel(place)}>예약</SearchButton>
           </PlaceInfo>
         ))}
       </div>
