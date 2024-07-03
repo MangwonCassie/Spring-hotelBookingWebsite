@@ -3,10 +3,13 @@ import styled from "styled-components";
 
 const Location = () => {
   const [searchKeyword, setSearchKeyword] = useState("호텔을 검색해보세요");
+  const [markers, setMarkers] = useState([]); // 마커 배열 추가
+  const [places, setPlaces] = useState([]); // 검색된 장소 배열 추가
+
   const handleInputChange = (e) => {
     setSearchKeyword(e.target.value); // 검색어 업데이트
   };
-  const [markers, setMarkers] = useState([]); // 마커 배열 추가
+
 
   useEffect(() => {
     var container = document.getElementById("map");
@@ -53,6 +56,7 @@ const Location = () => {
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         map.setBounds(bounds);
+        setPlaces(data); // 검색된 장소 배열 업데이트
 
       }
     }
@@ -85,40 +89,58 @@ const Location = () => {
   };
 
   return (
-    <div>
-      <InputWrapper>
-        {/* 검색창 UI */}
-        <StyledInput
-          type="text"
-          value={searchKeyword}
-          onChange={handleInputChange}
-          placeholder="맛집을 검색해보세요"
-        />
-        <SearchButton onClick={searchPlaces} >검색</SearchButton>
-        <SearchButton onClick={searchPlaces} >Only Hotel</SearchButton>
-      </InputWrapper>
+    <>
+      <div>
+        <InputWrapper>
+          {/* 검색창 UI */}
+          <StyledInput
+            type="text"
+            value={searchKeyword}
+            onChange={handleInputChange}
+            placeholder="맛집을 검색해보세요"
+          />
+          <SearchButton onClick={searchPlaces} >검색</SearchButton>
+          <SearchButton onClick={searchPlaces} >Only Hotel</SearchButton>
+        </InputWrapper>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+
+          }}
+        >
+          <div id="map" style={{
+            width: "800px", height: "500px", paddingBottom: "30px", borderStyle: "solid", borderColor: "rgb(169, 77, 123)",
+            borderRadius: "30px"
+          }}></div>
+        </div>
+      </div>
 
       <div
         style={{
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column", // 세로로 정렬
           alignItems: "center",
-
-        }}
-      >
-        <div id="map" style={{
-          width: "800px", height: "500px", paddingBottom: "30px", borderStyle: "solid", borderColor: "rgb(169, 77, 123)",
-          borderRadius: "30px"
-        }}></div>
+        }}>
+        {/* 검색된 장소 정보를 표시할 div들 */}
+        {places.map((place, index) => (
+          <PlaceInfo key={index}>
+            <h4>{place.place_name}</h4>
+            <p>{place.road_address_name}</p>
+            <p>{place.phone}</p>
+          </PlaceInfo>
+        ))}
       </div>
-    </div>
+    </>
   );
 };
 
 const InputWrapper = styled.div`
-  display: flex; 
-  justify-content: center;
-  align-items: center;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 `
 
 const StyledInput = styled.input`
@@ -146,6 +168,14 @@ const SearchButton = styled.button`
   font-weight: 700;
   font-size: 18px;
 `
-
+const PlaceInfo = styled.div`
+  width: calc(800px / 1 - 20px);
+  border: 3px solid rgb(169, 77, 123); /* border-width를 3px로 지정 */
+  border-radius: 30px;
+  border-style: solid;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+`;
 
 export default Location;
