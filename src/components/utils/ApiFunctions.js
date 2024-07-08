@@ -281,7 +281,7 @@ export async function saveHotel(hotelId, name, address, kakaoId, phone) {
 	console.log("Headers:", headers); // 헤더 로그 찍기
 
 	try {
-		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "/hotels/add", hotelData, {
+		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "hotels/add", hotelData, {
 			headers: headers,
 		});
 		if (response.status === 201) {
