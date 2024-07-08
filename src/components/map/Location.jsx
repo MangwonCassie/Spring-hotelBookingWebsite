@@ -12,6 +12,9 @@ const Location = () => {
   };
 
   const handleSaveHotel = async (place) => {
+
+    console.log("Saving hotel:", place);
+
     const success = await saveHotel(
       place.id,
       place.place_name,
