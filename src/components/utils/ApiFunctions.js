@@ -268,12 +268,11 @@ export async function getBookingsByUserId(userId, token) {
 	}
 }
 
-export async function saveHotel(hotelId, name, address, kakaoId, phone) {
+export async function saveHotel(place_name, address_name, id, phone) {
 	const hotelData = {
-		hotelId: hotelId,
-		name: name,
-		address: address,
-		kakaoId: kakaoId,
+		name: place_name,
+		address: address_name,
+		kakaoId: id,
 		phone: phone,
 	};
 
