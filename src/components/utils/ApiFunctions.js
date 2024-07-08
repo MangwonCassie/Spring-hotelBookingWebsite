@@ -283,7 +283,7 @@ export async function saveHotel(place_name, address_name, id, phone) {
 		const response = await api.post(import.meta.env.VITE_BACKEND_URL + "hotels/add", hotelData, {
 			headers: headers,
 		});
-		if (response.status === 201) {
+		if (response.status === 200) {
 			return true;
 		} else {
 			return false;
