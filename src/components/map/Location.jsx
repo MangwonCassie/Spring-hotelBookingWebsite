@@ -19,7 +19,6 @@ const Location = () => {
       place.id,
       place.place_name,
       place.road_address_name,
-      place.id,
       place.phone
     );
 

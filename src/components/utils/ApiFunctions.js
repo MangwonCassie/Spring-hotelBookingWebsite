@@ -269,6 +269,7 @@ export async function getBookingsByUserId(userId, token) {
 }
 
 export async function saveHotel(place_name, address_name, id, phone) {
+
 	const hotelData = {
 		name: place_name,
 		address: address_name,
@@ -284,6 +285,7 @@ export async function saveHotel(place_name, address_name, id, phone) {
 			headers: headers,
 		});
 		if (response.status === 200) {
+			console.log("Hotel saved successfully (phone정보 제대로 가나요?):", response.data); // 성공 시 응답 데이터 로그 찍기
 			return true;
 		} else {
 			return false;
