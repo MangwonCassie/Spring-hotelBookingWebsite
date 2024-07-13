@@ -90,7 +90,7 @@ export async function updateRoom(roomId, roomData) {
 	formData.append("roomType", roomData.roomType)
 	formData.append("roomPrice", roomData.roomPrice)
 	formData.append("photo", roomData.photo)
-	const response = await api.put(import.meta.env.VITE_BACKEND_URL + `/api/rooms/update/${roomId}`, formData, {
+	const response = await api.put(import.meta.env.VITE_BACKEND_URL + `api/rooms/update/${roomId}`, formData, {
 		headers: getHeader()
 	})
 	return response
@@ -258,7 +258,7 @@ export async function getUser(userId, token) {
 /* This is the function to get user bookings by the user id */
 export async function getBookingsByUserId(userId, token) {
 	try {
-		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `/bookings/user/${userId}/bookings`, {
+		const response = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/user/${userId}/bookings`, {
 			headers: getHeader()
 		})
 		return response.data;
