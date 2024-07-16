@@ -29,8 +29,7 @@ const BookingForm = () => {
 
 	const handleInputChange = (e) => {
 		const { name, value } = e.target
-		const updatedValue = (name === 'numOfAdults' || name === 'numOfChildren') ? Number(value) : value;
-		setBooking({ ...booking, [name]: updatedValue }) //숫자로 변환 중 
+		setBooking({ ...booking, [name]: value })
 		setErrorMessage("")
 	}
 
