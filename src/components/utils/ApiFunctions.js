@@ -108,6 +108,13 @@ export async function getRoomById(roomId) {
 
 /* This function saves a new booking to the databse */
 export async function bookRoom(roomId, booking) {
+
+	console.log("bookRoom function called");
+	console.log("roomId:", roomId);
+	console.log("booking:", booking);
+	console.log("URL:", import.meta.env.VITE_BACKEND_URL + `bookings/room/${roomId}/booking`);
+
+
 	try {
 		const response = await api.post(import.meta.env.VITE_BACKEND_URL + `bookings/room/${roomId}/booking`, booking)
 		return response.data
