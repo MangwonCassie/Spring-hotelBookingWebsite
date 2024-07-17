@@ -116,7 +116,7 @@ export async function bookRoom(roomId, booking) {
 
 
 	try {
-		const response = await api.post(`bookings/room/${roomId}/booking`, booking, {
+		const response = await api.post(import.meta.env.VITE_BACKEND_URL + `bookings/room/${roomId}/booking`, booking, {
 			headers: getHeader()
 		});
 		return response.data
