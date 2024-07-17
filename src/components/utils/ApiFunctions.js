@@ -76,7 +76,7 @@ export async function getAllRooms() {
 /* This function deletes a room by the Id */
 export async function deleteRoom(roomId) {
 	try {
-		const result = await api.delete(import.meta.env.VITE_BACKEND_URL + `api/rooms/delete/room/${roomId}`, {
+		const result = await api.delete(import.meta.env.VITE_BACKEND_URL + `rooms/delete/room/${roomId}`, {
 			headers: getHeader()
 		})
 		return result.data
@@ -90,7 +90,7 @@ export async function updateRoom(roomId, roomData) {
 	formData.append("roomType", roomData.roomType)
 	formData.append("roomPrice", roomData.roomPrice)
 	formData.append("photo", roomData.photo)
-	const response = await api.put(import.meta.env.VITE_BACKEND_URL + `api/rooms/update/${roomId}`, formData, {
+	const response = await api.put(import.meta.env.VITE_BACKEND_URL + `rooms/update/${roomId}`, formData, {
 		headers: getHeader()
 	})
 	return response
