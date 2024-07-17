@@ -143,6 +143,8 @@ export async function getAllBookings() {
 
 /* This function get booking by the cnfirmation code */
 export async function getBookingByConfirmationCode(confirmationCode) {
+	const headers = getHeader(); // Get the headers
+	console.log("Headers:", headers); // Log the headers
 	try {
 		const result = await api.get(import.meta.env.VITE_BACKEND_URL + `bookings/confirmation/${confirmationCode}`, {
 			headers: getHeader() // 여기에서 headers 추가 401에러나서 시도중
