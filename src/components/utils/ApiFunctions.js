@@ -120,6 +120,7 @@ export async function bookRoom(roomId, booking) {
 		return response.data
 	} catch (error) {
 		if (error.response && error.response.data) {
+			console.error(error.response); // 추가된 (디테일400에러 확인용)
 			throw new Error(error.response.data)
 		} else {
 			throw new Error(`Error booking room : ${error.message}`)
