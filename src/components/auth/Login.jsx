@@ -2,8 +2,10 @@ import React, { useState } from "react"
 import { loginUser } from "../utils/ApiFunctions"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "./AuthProvider"
+import { SocialKakao } from "./SocialKakao"
 
 const Login = () => {
+
 	const [errorMessage, setErrorMessage] = useState("")
 	const [login, setLogin] = useState({
 		email: "",
@@ -75,6 +77,7 @@ const Login = () => {
 					<button type="submit" className="btn btn-hotel" style={{ marginRight: "10px" }}>
 						Login
 					</button>
+					<SocialKakao />
 					<span style={{ marginLeft: "10px" }}>
 						Don't' have an account yet?<Link to={"/register"}> Register</Link>
 					</span>
