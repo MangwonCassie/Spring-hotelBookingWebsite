@@ -11,7 +11,7 @@ export const SocialKakao = () => {
     return (
         <>
             <button type="submit" className="btn btn-hotel" style={{ marginRight: "10px" }} onClick={handleLogin}>
-                Kakao로 로그인하기
+                Kakao Login
             </button>
         </>
     )

@@ -3,6 +3,7 @@ import { loginUser } from "../utils/ApiFunctions"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "./AuthProvider"
 import { SocialKakao } from "./SocialKakao"
+import SocialGoogle from "./SocialGoogle";
 
 const Login = () => {
 
@@ -78,6 +79,7 @@ const Login = () => {
 						Login
 					</button>
 					<SocialKakao />
+					<SocialGoogle />
 					<span style={{ marginLeft: "10px" }}>
 						Don't' have an account yet?<Link to={"/register"}> Register</Link>
 					</span>
