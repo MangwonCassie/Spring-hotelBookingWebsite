@@ -74,7 +74,7 @@ const Login = () => {
 					</div>
 				</div>
 
-				<div className="mb-3">
+				<div className="mb-3" style={{ display: "flex", alignItems: "center" }}>
 					<button type="submit" className="btn btn-hotel" style={{ marginRight: "10px" }}>
 						Login
 					</button>
