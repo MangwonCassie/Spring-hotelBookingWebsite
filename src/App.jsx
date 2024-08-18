@@ -20,6 +20,7 @@ import Profile from "./components/auth/Profile"
 import { AuthProvider } from "./components/auth/AuthProvider"
 import RequireAuth from "./components/auth/RequireAuth"
 import MapListing from "./components/map/MapListing"
+import SocialGoogleCallback from "./components/auth/SocialGoogleCallback"
 
 function App() {
 	return (
@@ -55,6 +56,7 @@ function App() {
 
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/logout" element={<FindBooking />} />
+						<Route path="/auth/google/callback" element={<SocialGoogleCallback />} />
 					</Routes>
 				</Router>
 				<Footer />
