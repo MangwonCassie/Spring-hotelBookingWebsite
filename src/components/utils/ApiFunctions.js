@@ -3,8 +3,8 @@ import axios from "axios"
 
 //axios config 
 // backendbaseURL 변수에 import.meta.env.VITE_BACKEND_URL 값 확인.
-// const backendbaseURL = import.meta.env.VITE_BACKEND_URL;
-const backendbaseURL = "http://localhost:9192";
+const backendbaseURL = import.meta.env.VITE_BACKEND_URL;
+// const backendbaseURL = "http://localhost:9192";
 console.log("Backend Base URL:", backendbaseURL);
 
 export const api = axios.create({
