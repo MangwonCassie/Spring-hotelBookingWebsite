@@ -31,6 +31,7 @@ function SocialGooglCallback() {
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search); //쿼리스트링으로 인증코드 가져옴
         const code = urlParams.get("code");
+        console.log("Authorization code received from 구글:", code); // 인증 코드 확인
 
         if (code) {
             // 백엔드로 Authorization Code 전송
@@ -38,6 +39,11 @@ function SocialGooglCallback() {
                 try {
                     const response = await api.post("/auth/google/callback", { code });
                     const { token } = response.data;
+
+                    // 콘솔에 ID 토큰 출력
+                    console.log("Social login succeeded. ID Token:", token);
+
+
                     auth.handleLogin(token);  // 받은 토큰으로 로그인 처리
                     navigate("/", { replace: true });  // 리다이렉트
                 } catch (error) {
