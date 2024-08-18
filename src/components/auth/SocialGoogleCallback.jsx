@@ -24,9 +24,10 @@ const modalContentStyle = {
     textAlign: "center",
 };
 
-function SocialGooglCallback() {
+function SocialGoogleCallback() {
     const navigate = useNavigate(); //navigate를 사용하여 홈 페이지로 리다이렉트S
     const auth = useAuth();
+    const [showModal, setShowModal] = React.useState(true); // showModal 상태 변수 정의
 
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search); //쿼리스트링으로 인증코드 가져옴
