@@ -8,6 +8,8 @@ const SocialKakaoCallback = () => {
     const navigate = useNavigate();
     const auth = useAuth();
 
+    console.log("SocialKakaoCallback Component Rendered");
+
     useEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get("code");
@@ -39,7 +41,7 @@ const SocialKakaoCallback = () => {
         } else {
             console.error('Authorization code not found');
         }
-    }, [navigate, auth]);
+    }, []); // 빈 배열로 변경하여 컴포넌트 마운트 시에만 호출되게 설정
 
     return <p>Logging in...</p>;
 };
