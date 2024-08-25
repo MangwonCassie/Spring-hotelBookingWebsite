@@ -18,6 +18,7 @@ const SocialKakaoCallback = () => {
             const exchangeCodeForToken = async () => {
                 try {
                     // 카카오에서 받은 인증 코드를 백엔드로 전송
+                    console.log("code는 받아오니?:", code);
                     const response = await api.post('/login/kakao', { token: code });
 
 
