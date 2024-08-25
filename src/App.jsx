@@ -21,6 +21,7 @@ import { AuthProvider } from "./components/auth/AuthProvider"
 import RequireAuth from "./components/auth/RequireAuth"
 import MapListing from "./components/map/MapListing"
 import SocialGoogleCallback from "./components/auth/SocialGoogleCallback"
+import SocialKakaoCallback from "./components/auth/SocialKakaoCallback"
 
 function App() {
 	return (
