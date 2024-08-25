@@ -11,6 +11,7 @@ const Home = () => {
 
 	const message = location.state && location.state.message
 	const currentUser = localStorage.getItem("userId")
+	console.log("Current User:", currentUser) // 콘솔에 현재 사용자 ID 출력
 	return (
 		<section>
 			{message && <p className="text-warning px-5">{message}</p>}
