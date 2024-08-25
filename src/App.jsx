@@ -57,6 +57,7 @@ function App() {
 						<Route path="/profile" element={<Profile />} />
 						<Route path="/logout" element={<FindBooking />} />
 						<Route path="/auth/google/callback" element={<SocialGoogleCallback />} />
+						<Route path="/kakao/callback" element={<SocialKakaoCallback />} />
 					</Routes>
 				</Router>
 				<Footer />
